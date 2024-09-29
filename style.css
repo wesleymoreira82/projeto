@@ -21,12 +21,10 @@
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-rover: rgba(0, 0, 0, 0.2);
   --righlight-color: rgba(0, 0, 0, 0.1);
-    --switch-bg-url: url(./assets/sun.svg);
-
+  --switch-bg-url: url(./assets/sun.svg);
 }
 
 body {
-
   background: var(--bg-url) no-repeat top center/cover;
   height: 100vh;
 }
@@ -37,10 +35,10 @@ body * {
 }
 
 #container {
- width: 100%;
- max-width: 580px;
- margin: 56px auto 0px;
- padding: 0 24px;
+  width: 100%;
+  max-width: 580px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
 }
 
 /* profile*/
@@ -59,13 +57,11 @@ body * {
   margin-top: 8px;
 }
 
-
 /* switch*/
 #switch {
-    position: relative;
-    width: 64px;
-    margin: 4px auto;  
-
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
 }
 #switch button {
   width: 32px;
@@ -79,24 +75,28 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back 0.2s;
 }
 
-.light #switch button{
-  right: 0;
-  left: initial;
+.light #switch button {
+  animation: slide-in 0.4s forwards;
 }
 
+#switch button:hover {
+  outline: 8px solid var(--righlight-color);
+}
 
 /* track */
 #switch span {
   display: block;
-  width: 64px;  
+  width: 64px;
   height: 24px;
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-border-radius: 9999px;
+  border-radius: 9999px;
 }
 
 /* links */
@@ -109,7 +109,6 @@ ul {
 }
 
 ul li a {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,17 +118,16 @@ ul li a {
   border-radius: 8px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-text-decoration: none;
-font-weight: 500;
+  text-decoration: none;
+  font-weight: 500;
 
-transition: background 0.2s;
+  transition: background 0.2s;
 }
 
 ul li a:hover {
-    background: var(--surface-color-rover);
+  background: var(--surface-color-rover);
 
-    border: 1.5px solid var(--text-color)
-
+  border: 1.5px solid var(--text-color);
 }
 
 /* social links*/
@@ -153,7 +151,7 @@ ul li a:hover {
   background: var(--righlight-color);
 }
 
-footer{
+footer {
   padding: 24px 0;
   text-align: center;
   font-size: 14px;
@@ -167,5 +165,24 @@ footer{
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
